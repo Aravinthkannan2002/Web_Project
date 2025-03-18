@@ -1,0 +1,501 @@
+/* Reset and base styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+}
+
+/* Logout button */
+.logout-container {
+    text-align: right;
+    padding: 20px;
+    background-color: #1f2937;
+}
+
+.logout-button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #dc2626;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+/* Form elements */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+/* Select dropdown */
+#yearFilter {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    background-color: #c5c4c4;
+    color: #333;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  /* Style options */
+  #yearFilter option {
+    padding: 12px;
+    background-color: #fff;
+  }
+  
+  /* Hover and focus styles */
+  #yearFilter:hover,
+  #yearFilter:focus {
+    background-color: #a32d2d;
+  }
+  
+  /* Custom dropdown arrow */
+  #yearFilter {
+    background-image: linear-gradient(45deg, transparent 50%, #333 50%), linear-gradient(135deg, #333 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(50% + 2px), calc(100% - 15px) calc(50% + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+  }
+  
+  /* Disabled styles */
+  #yearFilter:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #1f2937;
+    color: white;
+    text-transform: uppercase;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9fafb;
+}
+
+tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Toggle switch */
+.center-switch {
+    text-align: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1d5db;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #324258;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #6b7280;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #1f2937;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #dc2626;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #9ca3af;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #6b7280;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    width: calc(100% - 30px);
+    padding-right: 30px;
+}
+
+.password-field .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.password-field .toggle-password:hover {
+    color: #374151;
+}
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* Close button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Password toggle button */
+  .toggle-password {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  /* Password field */
+  .password-field {
+    position: relative;
+  }
+  
+  /* Text field */
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 12px); /* Adjust the width based on container padding */
+    padding: 8px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  /* View Modal content */
+#viewModal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close button */
+#viewModal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#viewModal .close:hover,
+#viewModal .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Text field */
+#viewModal input[type="text"] {
+  width: calc(100% - 12px); /* Adjust the width based on container padding */
+  padding: 8px;
+  margin: 6px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Password field */
+#viewModal .password-field {
+  position: relative;
+}
+
+/* Submit button */
+#viewModal button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#viewModal button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9fafb; /* Add your desired color here */
+}
+
+/* Color for even number rows */
+tbody tr:nth-child(even) {
+  background-color: #e5e7eb; /* Add your desired color here */
+}
+
+
+.toast-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* Snackbar container */
+/* Toast Container */
+.md-toast-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  font-size: 16px;
+  color: #ffffff;
+  background: linear-gradient(to right, #08defa,  #1f2937); /* Gradient background */
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Adjusted box shadow */
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  transition: transform 0.2s ease-in-out; /* Hover effect */
+  transform: translateY(0);
+  border: 2px solid transparent; /* Transparent border */
+}
+
+/* Action Button */
+.md-toast-action {
+  margin-left: 16px;
+  background-color: #009688; /* Lighter teal */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out; /* Button animation */
+}
+
+.md-toast-action:hover {
+  background-color: #00796b; /* Darker teal on hover */
+  transform: translateY(-2px); /* Button lift on hover */
+}
+
+.md-toast-action:focus {
+  outline: none;
+}
+
+/* Close Button */
+.md-toast-close {
+  color: #ffffff; /* White color for close button */
+  font-size: 30px; /* Adjust size as needed */
+}
+
+/* Message Text */
+.md-toast-message {
+  flex: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .md-toast-content {
+      bottom: 12px;
+      right: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+  }
+  .md-toast-action {
+      padding: 6px 12px;
+  }
+}

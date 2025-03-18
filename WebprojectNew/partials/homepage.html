@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="homeApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.12/angular-material.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.12/angular-material.min.css">
+    <script src="../js/homepage.js"></script>
+    
+</head>
+<body ng-controller="HomeController">
+    <div class="logout-container">
+        <button class="logout-button" ng-click="logout()">Logout</button>
+    </div>
+    <br>
+<br>    
+     <div ng-controller="HomeController" class="container">
+        <h1>User DataTable</h1>
+        <!-- Year filter -->
+         <!-- <div>
+            <label for="yearFilter">Filter by Year:</label>
+            <select id="yearFilter" ng-model="selectedYear" ng-change="fetchusers('')">
+                <option value="all">All</option>
+                <option ng-repeat="year in availableYears" value="{{ year }}">{{ year }}</option>
+            </select>.
+        </div>  -->
+        <br>
+        <div>
+             <label for="yearFilter">Filter by Year(woapi):</label>
+        <select id="yearFilter" ng-model="selectedYearswithoutapi" ng-change="filterRecord(selectedYearswithoutapi)" ng-init="selectedYearswithoutapi = 'all'">
+            <option value="all">All</option>
+            <option ng-repeat="year in availableYears" value="{{ year }}">{{ year }}</option>
+        </select>
+    </div>
+
+        <table style="height: 200px">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <!-- <th>Password</th> -->
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Entered Date</th>
+                    <th>Updated Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in userDetails">
+                    <td>{{user.personid}}</td>
+                    <td>{{user.username}}</td>
+                    <!-- <td>{{user.paswd}}</td> -->
+                    <td>{{user.email}}</td>
+                    <td>
+                        <div class="center-switch">
+                            <label class="switch">
+                                <input type="checkbox" ng-checked="user.Status === 'A'" ng-click="toggleUserStatus(user)">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </td>                                        
+                    <td>{{user.entereddate}}</td>
+                    <td>{{user.updateddate}}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
+                            <div class="dropdown-content">
+                                <a ng-click="viewUser(user)"><i class="fas fa-eye"></i> View</a>
+                                <a ng-click="deleteUser(user.personid)"><i class="fas fa-trash-alt"></i> Delete</a>
+                                <a ng-click="showUpdatePopup(user)"><i class="fas fa-edit"></i> Update</a>
+                            </div>
+                        </div>                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- <td>{{user.Status}}</td>  -->
+    <!-- The Modal   -->
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" ng-click="closeUpdatePopup()">&times;</span>
+            <h2>Update User</h2>
+            <form ng-submit="updateuser(selectedUsernew)">
+                <div>      
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" ng-model="selectedUser.username">
+                </div>
+                <br>
+                <div>
+                    <label for="Password">Password:</label>
+                    <div class="password-field">
+                        <input type="password" id="password" ng-model="selectedUser.paswd">
+                        <i class="fas fa-eye toggle-password" ng-click="togglePasswordVisibility()"></i>
+                    </div>
+                </div>
+                <br>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    <!-- The view -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" ng-click="closeViewPopup()">&times;</span>
+            <h2>View User</h2>
+            <div>
+                <label for="viewUsername">Username:</label>
+                <input type="text" id="viewUsername" ng-model="selectedUser.username" readonly>
+            </div>
+            <br>
+            <!-- <div>
+                <label for="viewPassword">Password:</label>
+                <div class="password-field">
+                    <input type="text" id="password" ng-model="selectedUser.paswd" readonly>
+                </div>
+            </div> -->
+            <br>
+            <div>
+                <label for="Entereddate">Entereddate:</label>
+                <input type="text" id="viewEntereddate" ng-model="selectedUser.entereddate" readonly>
+            </div>
+            <br>
+            <div>
+                <label for="Updateddate">Updateddate:</label>
+                <input type="text" id="viewUpdateddate" ng-model="selectedUser.updateddate" readonly>
+            </div>
+            <br>
+            <div>
+                <label for="viewEmail">Email:</label>
+                <input type="text" id="viewEmail" ng-model="selectedUser.email" readonly>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

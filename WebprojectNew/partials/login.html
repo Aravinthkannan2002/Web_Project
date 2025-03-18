@@ -1,0 +1,71 @@
+
+    <div class="box" ng-controller="LoginController">
+        <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" class="avatar" alt="Avatar"> 
+        
+       
+        <!-- <div class="error">
+           {{user_data.msg}}
+        </div> -->
+        
+        <form name="userform" novalidate autocomplete="off">
+            <h1 ng-show="Showlogin">Login</h1>
+            <h1 ng-show="showsignup">Sign Up</h1>
+            <div class="textfield" ng-show="showsignup"> 
+                <i class="fas fa-user"></i>
+                <input type="text" class="textfield-input" name="username" ng-model="username" required ng-change="validateUsername()" ng-blur="capitalizeUsername()">
+                <label>Username</label>   
+                <div>
+                    <span ng-show="userform.$submitted || userform.username.$dirty">
+                        <span class="error" ng-show="userform.username.$error.required">
+                            Username required..!
+                        </span>
+                        <span class="error" ng-show="usernameError">
+                            Username must start with a capital letter!
+                        </span> 
+                    </span>
+                </div>
+            </div>
+            <div class="textfield">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" class="textfield-input" name="email" ng-model="email" required ng-change="validateEmail()">
+                <label>Email</label>
+                <div>
+                    <span ng-show="userform.$submitted || userform.email.$dirty">
+                        <span class="error" ng-show="userform.email.$error.required">
+                            Email required..!
+                        </span>
+                        <span class="error" ng-show="emailError">
+                            Email must be valid and contain '@' and '.com'!
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="textfield">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="textfield-input" name="password" ng-model="password" required ng-change="validatePassword()">
+                <label>Password</label>
+                <div>
+                    <span ng-show="userform.$submitted || userform.password.$dirty">
+                        <span class="error" ng-show="userform.password.$error.required">
+                            Password required..!
+                        </span>
+                        <span class="error" ng-show="passwordError">
+                            Password must be at least 6 characters long and contain a special character!
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="logindiv">
+                <button type="submit" class="loginbtn" ng-click="submitForm()">
+                    {{btnName}}
+        </form>     </button>
+            </div>
+
+            <p class="account" ng-show="Showlogin">
+                New User? <span><a href="#" ng-click="signuppage()">Create an account</a></span>
+            </p>
+            <p class="account" ng-show="showsignup">
+                Already have an account? <span><a href="#" ng-click="loginpage()">Login</a></span>
+   
+    </div>
+
